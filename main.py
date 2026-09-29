@@ -2,6 +2,7 @@ from flask import Flask, render_template
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email, Length
+from flask_bootstrap import Bootstrap4
 
 class LoginForm(FlaskForm):
     email = StringField(label='Email', validators=[DataRequired(), Email()])
@@ -21,8 +22,8 @@ pip3 install -r requirements.txt
 This will install the packages from requirements.txt for this project.
 '''
 
-
 app = Flask(__name__)
+bootstrap = Bootstrap4(app)
 app.secret_key = "some-secret-string"
 
 @app.route("/")
